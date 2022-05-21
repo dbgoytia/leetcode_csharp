@@ -1,0 +1,33 @@
+﻿using System;
+namespace Calculator
+{
+    public class CalculatorEngine
+    {
+        public double Calculate(string operation, double firstNumber, double secondNumber)
+        {
+            double result;
+            switch(operation.ToLower())
+            {
+                case "add":
+                case "+":
+                    result = firstNumber + secondNumber;
+                    break;
+                case "substract":
+                case "-":
+                    result = firstNumber - secondNumber;
+                    break;
+                case "multiply":
+                case "*":
+                    result = firstNumber * secondNumber;
+                    break;
+                case "divide":
+                case "/":
+                    result = firstNumber / secondNumber;
+                    break;
+                default:
+                    throw new InvalidOperationException("Operation not recognized.");
+            }
+            return result;
+        }
+    }
+}
