@@ -1,10 +1,9 @@
 ﻿using System;
-
-namespace Calculator
+namespace SimpleCalculator
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             InputConverter inputConverter = new InputConverter();
             CalculatorEngine calculatorEngine = new CalculatorEngine();

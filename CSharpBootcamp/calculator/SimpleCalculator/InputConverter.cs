@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Calculator
+namespace SimpleCalculator
 {
     public class InputConverter
     {

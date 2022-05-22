@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -13,6 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\calculator.csproj" />
+    <ProjectReference Include="..\SimpleCalculator\SimpleCalculator.csproj" />
   </ItemGroup>
 </Project>
