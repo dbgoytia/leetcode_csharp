@@ -62,6 +62,99 @@ Bottom line:
 * Increased security layer
 * All of this come out of the box by using gRPC
 
+
+Types of API in gRPC
+=====================
+
+
+## Unary
+
+It's the one that closest resembles REST APIs. A client sends a request, and the server reponds.
+
+## Server streaming
+
+The client sends one request, and the server can return one or more responses depending on the context.
+This is useful when you want to update in near real-time on the client side.
+
+## Client streaming
+
+The client can send multiple requests, and the server returns one response. For example, this is one is
+usefull when we want to add real-time updating of the information being sent to the server.
+
+## Bi directional streaming
+
+Fancier, the client sends multiple requests, and server responds with multiple responses. The resposnes
+can arrive in any order you decide.
+
+
+Examples:
+
+
+```
+// The main visual difference is the word stream
+service GreetService {
+
+	// Unary
+	rpc Greet(GreetRequest) returns (GreetResponse) {};
+
+	// Server Streaming
+	rpc GreetManyTimes(GreetRequest) returns (stream GreetResponse) {};
+
+	// Client Streaming
+	rpc LongGreet(stream GreetRequest) returns (GreetResponse) {};
+
+	// Bi directional Streaming
+	rpc GreetEveryone(stream GreetRequest) returns (stream GreetResponse) {};
+}
+```
+
+
+Scalability in gRPC
+===================
+
+* Server side is Async
+* Client can be Async or Blocking process.
+* For example, Google can request 10 Billion requests / sec.
+
+
+Security in gRPC (SSL)
+========================
+
+* Schema based serialization. This is on binary format, and you need the schema to read it efficiently.
+* Easy SSL certificates initialization.
+* Interceptors for Authentication - provide authentication features to our APIs.
+
+
+Comparisons (gRPC vs REST)
+===========================
+
+Use the right tool, for the right situation
+
+
+gRPC
+* Protocol Buffers
+* HTTP2
+* Streaming support of data
+* Bi directional communication
+* free design of verbs.
+
+REST
+* JSON
+* HTTP1
+* Unary data
+* client -> server communication
+* get/post/update/delete
+
+
+
+
+
+
+
+
+
+	
 References
 ==========
+
 * [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2)
