@@ -32,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WordUnscrambler", "WordUnsc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordUnscrambler", "CSharpBootcamp\WordUnscrambler\WordUnscrambler.csproj", "{70FC7F26-E30C-4CA2-A302-22E54BD32B2D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gRPCIntroduction", "gRPCIntroduction", "{F56963D3-7302-4CCF-9AA9-B083BC09BD5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
