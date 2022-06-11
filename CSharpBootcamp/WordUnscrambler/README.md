@@ -32,7 +32,7 @@ myList.Add("guillian");
 ```
 
 
-## Arrays
+## Arrays
 
 With Arrays, you basically need to instanciate them with a given initial capacity.
 In order to grow them, you have to copy them into an array of larger memory allocation
@@ -54,7 +54,7 @@ that you can use out of the box.
 ## Reference vs Value Types
 
 
-### Passing by Value 
+### Passing by Value 
 
 By value it means that we're literally creating a new copy of the variable in our
 methods, and returning that value into the variable in which we want to store it
@@ -81,7 +81,7 @@ static int ChangeNumber(int a)
 ```
 
 
-### Getting confused
+### Getting confused
 
 One intereseting example, when you're dealing with custom classes, apparently
 you always pass by reference in C#.
@@ -175,7 +175,7 @@ Hence, Classes are **Reference types**.
 ```
 
 
-## Classes vs Structs
+## Classes vs Structs
 
 Now, another fun example is to introduce Structs. We now know that classes are
 Reference types. Interestingly, **Structs are Value types**. Take the following
