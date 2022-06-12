@@ -3,27 +3,26 @@
     class Program
     {
         static void Main(string[] args)
-        {
-            Person person = new Person();
-            person.FirstName = "diego";
-            person.LastName = "canizales";
+        { 
+            Person person = null;
 
-            ChangeName(person);
+            Person newPerson = person ?? new Person("Default", "Person");
 
-            Console.WriteLine(person.FirstName);
-            Console.WriteLine(person.LastName);
-        }
+            Console.WriteLine(newPerson.FirstName);
+            Console.WriteLine(newPerson.LastName);
 
-        static void ChangeName(Person personToChange)
-        {
-            personToChange.FirstName = "Jane";
-            personToChange.LastName = "Doe";
         }
     }
 
-    struct Person
+    class Person
     {
-        public string? FirstName { get; set; }
-        public string? LastName { get; set; }
+        public Person(string firstName, string lastName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+        }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }

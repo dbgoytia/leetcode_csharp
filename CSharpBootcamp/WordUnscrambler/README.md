@@ -222,3 +222,143 @@ you're able to implement various **interfaces** on a struct, and this is safe to
 
 
 
+## Out vs Reference
+
+Another option we have to force value types to behave as reference types is to use
+the **ref** or **out** keywords. For example:
+
+```
+class Program
+{
+    static void Main(string[] args)
+    {
+        int a = 10;
+        ChangeNumber(ref a);
+        Console.WriteLine(a);
+    }
+
+    static void ChangeNumber(ref int a)
+    {
+        a = 90;
+    }
+}
+
+>> 90
+```
+
+```
+class Program
+{
+    static void Main(string[] args)
+    {
+        int a = 10;
+        ChangeNumber(out a);
+        Console.WriteLine(a);
+    }
+
+    static void ChangeNumber(out int a)
+    {
+        a = 90;
+    }
+}
+
+>> 90
+```
+
+
+So the difference is basically:
+* With ref, the parameter that we're trying to use has to be initialized.
+* With out, the parameter can be unilitialized, it doesn't care about that.
+
+See: [ref vs out keywords](https://www.c-sharpcorner.com/UploadFile/ff2f08/ref-vs-out-keywords-in-C-Sharp/)
+
+
+
+## Null vs Null Coalescing
+
+One other thing we need to go through before building actuall applications is
+handling of nulls, take the following error:
+
+
+```
+class Program
+{
+    static void Main(string[] args)
+    {
+        Person newPerson = new Person("John", "Doe");
+
+        Console.WriteLine(newPerson.FirstName);
+        Console.WriteLine(newPerson.LastName);
+
+
+        Person nullPerson = null;
+        Console.WriteLine(nullPerson.FirstName);
+        Console.WriteLine(nullPerson.LastName);
+
+    }
+}
+
+class Person
+{
+    public Person(string firstName, string lastName)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+    }
+
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+}
+
+>> System.NullReferenceException has been thrown
+```
+
+
+As you can see this is not a compile time error since the complier didn't
+threw this before actually running the code, but when we were actually running
+it, it appeared. From the instanciated null object we're trying to get a value
+that simply doesn't exist, we can't use that property from that class.
+
+This is where null coalescing comes into play. It is simply a check for null
+values in a program, and it's represented through **??**.
+
+Example:
+
+```
+class Program
+{
+    static void Main(string[] args)
+    { 
+        Person person = null;
+
+        Person newPerson = person ?? new Person("Default", "Person");
+
+        Console.WriteLine(newPerson.FirstName);
+        Console.WriteLine(newPerson.LastName);
+
+    }
+}
+
+class Person
+{
+    public Person(string firstName, string lastName)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+    }
+
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+}
+```
+
+This will efectively create a new default object, in this case a default person,
+in the case that the Object is pointing to null.
+
+
+
+
+
+
+
+
