@@ -37,6 +37,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "proto", "proto", "{F45EA3AF-1934-4940-9E59-1BBBA1BC9CB4}"
 	ProjectSection(SolutionItems) = preProject
 		gRPCIntroduction\dummy.proto = gRPCIntroduction\dummy.proto
+		gRPCIntroduction\greeting.proto = gRPCIntroduction\greeting.proto
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "client", "gRPCIntroduction\client\client.csproj", "{F248D6B6-B3E1-4F7E-B542-65FD8271A8BE}"

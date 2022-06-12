@@ -1,10 +1,11 @@
 ﻿using Grpc.Core;
+using Greet;
 
 namespace server
 {
     class Program
     {
-        const int Port = 5051;
+        const int Port = 50051;
 
         static void Main(string [] args)
         {
@@ -14,6 +15,7 @@ namespace server
             {
                 server = new Server()
                 {
+                    Services = { GreetingService.BindService(new GreetingServiceImpl()) },
                     Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
                 };
                 server.Start();

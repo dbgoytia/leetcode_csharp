@@ -1,11 +1,11 @@
 ﻿using Grpc.Core;
-using Dummy;
+using Greet;
 
 namespace client
 {
     class Program
     {
-        const string Target = "127.0.0.1:5051";
+        const string Target = "127.0.0.1:50051";
 
         static void Main(string [] args)
         {
@@ -17,10 +17,26 @@ namespace client
                     Console.WriteLine("Client connected successfully");
             });
 
-            var client = new DummyService.DummyServiceClient(channel);
+            var client = new GreetingService.GreetingServiceClient(channel);
+
+            DoSimpleGreet(client);
 
             channel.ShutdownAsync().Wait();
             Console.ReadKey();
+        }
+
+        public static void DoSimpleGreet(GreetingService.GreetingServiceClient client)
+        {
+            var greeting = new Greeting()
+            {
+                FirstName = "Diego",
+                LastName = "Canizales"
+            };
+
+            var request = new GreetingRequest() { Greeting = greeting };
+            var response = client.Greet(request);
+
+            Console.WriteLine(response.Result);
         }
     }
 }
