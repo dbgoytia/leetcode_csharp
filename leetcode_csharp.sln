@@ -32,17 +32,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WordUnscrambler", "WordUnsc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordUnscrambler", "CSharpBootcamp\WordUnscrambler\WordUnscrambler.csproj", "{70FC7F26-E30C-4CA2-A302-22E54BD32B2D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gRPCIntroduction", "gRPCIntroduction", "{F56963D3-7302-4CCF-9AA9-B083BC09BD5B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grpc-csharp-course", "grpc-csharp-course", "{F56963D3-7302-4CCF-9AA9-B083BC09BD5B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "proto", "proto", "{F45EA3AF-1934-4940-9E59-1BBBA1BC9CB4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "001_grpc_introduction", "001_grpc_introduction", "{42299D93-3AC4-4D53-8828-C5F75590D281}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "server", "grpc-csharp-course\server\server.csproj", "{53BD1EEC-89F9-4010-970A-6B16DCC581C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "client", "grpc-csharp-course\client\client.csproj", "{B3690C29-993B-454A-8738-947A1BEE31D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "proto", "proto", "{C47D7AE3-DA35-4AF7-9CA8-3F169B83C0CE}"
 	ProjectSection(SolutionItems) = preProject
-		gRPCIntroduction\dummy.proto = gRPCIntroduction\dummy.proto
-		gRPCIntroduction\greeting.proto = gRPCIntroduction\greeting.proto
+		grpc-csharp-course\greeting.proto = grpc-csharp-course\greeting.proto
+		grpc-csharp-course\dummy.proto = grpc-csharp-course\dummy.proto
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "client", "gRPCIntroduction\client\client.csproj", "{F248D6B6-B3E1-4F7E-B542-65FD8271A8BE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "server", "gRPCIntroduction\server\server.csproj", "{C12D4E94-C3B7-45E3-86C6-409E63FC980D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{36A889BB-6E30-4C1E-A2B8-231B05ECD52A}"
+	ProjectSection(SolutionItems) = preProject
+		grpc-csharp-course\README.md = grpc-csharp-course\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,14 +85,14 @@ Global
 		{70FC7F26-E30C-4CA2-A302-22E54BD32B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70FC7F26-E30C-4CA2-A302-22E54BD32B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70FC7F26-E30C-4CA2-A302-22E54BD32B2D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F248D6B6-B3E1-4F7E-B542-65FD8271A8BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F248D6B6-B3E1-4F7E-B542-65FD8271A8BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F248D6B6-B3E1-4F7E-B542-65FD8271A8BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F248D6B6-B3E1-4F7E-B542-65FD8271A8BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C12D4E94-C3B7-45E3-86C6-409E63FC980D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C12D4E94-C3B7-45E3-86C6-409E63FC980D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C12D4E94-C3B7-45E3-86C6-409E63FC980D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C12D4E94-C3B7-45E3-86C6-409E63FC980D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53BD1EEC-89F9-4010-970A-6B16DCC581C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53BD1EEC-89F9-4010-970A-6B16DCC581C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53BD1EEC-89F9-4010-970A-6B16DCC581C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53BD1EEC-89F9-4010-970A-6B16DCC581C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3690C29-993B-454A-8738-947A1BEE31D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3690C29-993B-454A-8738-947A1BEE31D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3690C29-993B-454A-8738-947A1BEE31D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3690C29-993B-454A-8738-947A1BEE31D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,8 +110,10 @@ Global
 		{1D468842-B5E6-4077-AAF7-CF87C8FD6CDF} = {E532E8E3-7A48-47CC-9FF6-DF092E988299}
 		{C489C2ED-A67E-40BE-BF62-9D1790B4377C} = {FEFC4370-AEF4-4E85-B4EF-216B84BB6F25}
 		{70FC7F26-E30C-4CA2-A302-22E54BD32B2D} = {C489C2ED-A67E-40BE-BF62-9D1790B4377C}
-		{F45EA3AF-1934-4940-9E59-1BBBA1BC9CB4} = {F56963D3-7302-4CCF-9AA9-B083BC09BD5B}
-		{F248D6B6-B3E1-4F7E-B542-65FD8271A8BE} = {F56963D3-7302-4CCF-9AA9-B083BC09BD5B}
-		{C12D4E94-C3B7-45E3-86C6-409E63FC980D} = {F56963D3-7302-4CCF-9AA9-B083BC09BD5B}
+		{42299D93-3AC4-4D53-8828-C5F75590D281} = {F56963D3-7302-4CCF-9AA9-B083BC09BD5B}
+		{53BD1EEC-89F9-4010-970A-6B16DCC581C6} = {42299D93-3AC4-4D53-8828-C5F75590D281}
+		{B3690C29-993B-454A-8738-947A1BEE31D0} = {42299D93-3AC4-4D53-8828-C5F75590D281}
+		{C47D7AE3-DA35-4AF7-9CA8-3F169B83C0CE} = {42299D93-3AC4-4D53-8828-C5F75590D281}
+		{36A889BB-6E30-4C1E-A2B8-231B05ECD52A} = {42299D93-3AC4-4D53-8828-C5F75590D281}
 	EndGlobalSection
 EndGlobal
