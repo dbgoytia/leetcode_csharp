@@ -1,3 +1,37 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+using Grpc.Core;
+using Calculator;
 
+namespace client
+{
+    class Program
+    {
+        const string Target = "127.0.0.1:50051";
+
+        static void Main(string[] args)
+        {
+            Channel channel = new Channel(Target, ChannelCredentials.Insecure);
+
+            channel.ConnectAsync().ContinueWith((task) =>
+            {
+                if (task.Status == TaskStatus.RanToCompletion)
+                    Console.WriteLine("Client connected successfully");
+            });
+
+            var client = new CalculatorService.CalculatorServiceClient(channel);
+
+            var request = new SumRequest()
+            {
+                A = 1,
+                B = 2
+            };
+
+            var response = client.Sum(request);
+
+            Console.WriteLine(response.Result);
+
+            channel.ShutdownAsync().Wait();
+            Console.ReadKey();
+        }
+    }
+}
