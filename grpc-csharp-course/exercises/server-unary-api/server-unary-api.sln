@@ -5,7 +5,7 @@ VisualStudioVersion = 25.0.1700.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "proto", "proto", "{1F521A44-D669-46AB-A6AB-A675B8B3A47D}"
 	ProjectSection(SolutionItems) = preProject
-		sum.proto = sum.proto
+		calculator.proto = calculator.proto
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{8456CC32-3568-4737-A30E-D56C44A07476}"

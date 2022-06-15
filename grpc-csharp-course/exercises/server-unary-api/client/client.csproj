@@ -13,6 +13,7 @@
     <None Remove="Grpc.Core.Api" />
     <None Remove="Grpc" />
     <None Remove="Google.Protobuf" />
+    <None Remove="models\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Grpc.Tools" Version="2.46.3">
@@ -27,5 +28,9 @@
 
   <ItemGroup>
     <Protobuf Include="../*.proto" OutputDir="%(RelativePath)models/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="models\" />
   </ItemGroup>
 </Project>
