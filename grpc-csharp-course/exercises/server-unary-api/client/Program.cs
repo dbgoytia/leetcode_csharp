@@ -20,6 +20,30 @@ namespace client
 
             var client = new CalculatorService.CalculatorServiceClient(channel);
 
+            // Sample requests
+            DoSumRequest(client);
+            DoSubstractRequest(client);
+
+
+            channel.ShutdownAsync().Wait();
+            Console.ReadKey();
+        }
+
+        public static void DoSubstractRequest(CalculatorService.CalculatorServiceClient client)
+        {
+            var request = new SubstractRequest()
+            {
+                A = 1,
+                B = 2
+            };
+
+            var response = client.Substract(request);
+
+            Console.WriteLine("Substract: " + response.Result);
+        }
+
+        public static void DoSumRequest(CalculatorService.CalculatorServiceClient client)
+        {
             var request = new SumRequest()
             {
                 A = 1,
@@ -28,10 +52,7 @@ namespace client
 
             var response = client.Sum(request);
 
-            Console.WriteLine(response.Result);
-
-            channel.ShutdownAsync().Wait();
-            Console.ReadKey();
+            Console.WriteLine("Sum: " + response.Result);
         }
     }
 }
